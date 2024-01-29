@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Online Calculator</title>
+    <link rel="icon" type="image/x-icon" href="calculator.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div class="container">
+        <div class="calc">
+          <input type="text" id="input_text" placeholder="0">
+          <button type="button" onclick="clear()">C</button>
+          <button type="button" onclick="del()">Del</button>
+          <button type="button" onclick="calculate('%')">%</button>
+          <button type="button" onclick="calculate('/')">/</button>
+          <button type="button" onclick="calculate(7)">7</button>
+          <button type="button" onclick="calculate(8)">8</button>
+          <button type="button" onclick="calculate(9)">9</button>
+          <button type="button" onclick="calculate('*')">*</button>
+          <button type="button" onclick="calculate(4)">4</button>
+          <button type="button" onclick="calculate(5)">5</button>
+          <button type="button" onclick="calculate(6)">6</button>
+          <button type="button" onclick="calculate('-')">-</button>
+          <button type="button" onclick="calculate(1)">1</button>
+          <button type="button" onclick="calculate(2)">2</button>
+          <button type="button" onclick="calculate(3)">3</button>
+          <button type="button" onclick="calculate('+')">+</button>
+          <button type="button" onclick="calculate('.')">.</button>
+          <button type="button" onclick="calculate(0)">0</button>
+          <button id="equal" type="button" onclick="display()">=</button>
+        </div>
+      </div>
+      <script>
+        let input_text = document.getElementById("input_text");
+        function calculate(num) {
+          input_text.value += num; 
+        }
+
+        function display() {
+          try{
+            input_text.value = eval(input_text.value);
+          } catch(err){
+            alert("Invalid ERROR");
+          }
+        }
+
+        function clear() {
+          input_text.value = "";
+        }
+
+        function del() {
+          input_text.value = input_text.value.slice(0, -1);
+        }
+    </script>
+  </body>
+</html>
